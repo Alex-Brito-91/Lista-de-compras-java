@@ -1,5 +1,5 @@
-import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class TesteProdutos {
 	
@@ -7,26 +7,16 @@ public class TesteProdutos {
 		
 		ListaProdutos lista = new ListaProdutos();
 		
-		lista.produto.add(new String("arroz"));
-		lista.produto.add(new String("feijao"));
-		lista.produto.add(new String("oleo"));
-		lista.produto.add(new String("leite"));
-		lista.produto.add(new String("pao"));
-		lista.produto.add(new String("macarrao"));
+		Scanner entrada = new Scanner(System.in);
 		
-		lista.preco.add(new BigDecimal(22.50));
-		lista.preco.add(new BigDecimal(6.50));
-		lista.preco.add(new BigDecimal(7.50));
-		lista.preco.add(new BigDecimal(4.50));
-		lista.preco.add(new BigDecimal(8.50));
-		lista.preco.add(new BigDecimal(3.50));
+		System.out.print("Insira um produto: ");
+		lista.produto.add(entrada.nextLine());
+
+		System.out.print("Insira o valor: ");
+		lista.preco.add(entrada.nextBigDecimal());
 		
-		lista.quantidade.add(1);
-		lista.quantidade.add(2);
-		lista.quantidade.add(2);
-		lista.quantidade.add(6);
-		lista.quantidade.add(1);
-		lista.quantidade.add(4);
+		System.out.print("Insira a quantidade: ");
+		lista.quantidade.add(entrada.nextInt());
 		
 		Arrays.toString(lista.produto.toArray());
 		Arrays.toString(lista.preco.toArray());
@@ -36,13 +26,7 @@ public class TesteProdutos {
 		System.out.println(Arrays.toString(lista.preco.toArray()));
 		System.out.println(Arrays.toString(lista.quantidade.toArray()));
 		
-		System.out.println(lista.produto.contains("pao"));
-		
-		boolean removido = lista.produto.remove("pao");
-		
-		System.out.println(removido);
-		System.out.println(lista.produto.contains("pao"));
-		
+		System.out.println(lista.produto.contains("arroz"));
 		
 	}
 
