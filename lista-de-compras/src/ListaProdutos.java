@@ -1,10 +1,17 @@
 import java.math.BigDecimal;
-import java.util.ArrayList;
 
 public class ListaProdutos {
-	
-	ArrayList<String> produto = new ArrayList<>();
-	ArrayList<BigDecimal> preco = new ArrayList<>();
-	ArrayList<Integer> quantidade = new ArrayList<>();
-	
+
+	String nome;
+	BigDecimal preco;
+	int quantidade;
+
+	public ListaProdutos(String nome, BigDecimal preco, int quantidade) {
+
+		this.nome = nome;
+		this.preco = preco;
+		this.quantidade = quantidade;
+
+	}
+
 }
