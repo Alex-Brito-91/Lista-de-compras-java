@@ -1,18 +1,18 @@
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
-public class TesteProdutos {
+public class TesteProduto {
 
 	public static void main(String[] args) {
 
-		ArrayList<ListaProdutos> produto = new ArrayList<>();
+		List<Produto> produtos = new ArrayList<>();
 		Scanner entrada = new Scanner(System.in);
 
 		String exit = "";
 
-		while ("não".equalsIgnoreCase(exit)) {
+		while (!"N".equalsIgnoreCase(exit)) {
 
 			System.out.print("Digite o nome do Produto: ");
 			String nome = entrada.next();
@@ -23,16 +23,18 @@ public class TesteProdutos {
 			System.out.print("Digite a quantidade: ");
 			int quantidade = entrada.nextInt();
 
-			ListaProdutos lista = new ListaProdutos(nome, preco, quantidade);
-			produto.add(lista);
+			Produto lista = new Produto(nome, preco, quantidade);
+			produtos.add(lista);
 
-			System.out.println("Deseja continuar cadastrando? Digite: [sim] para continuar e [não] para encerrar");
+			System.out.println("Deseja continuar cadastrando? Digite: [S] para continuar e [N] para encerrar");
 			exit = entrada.next();
 
 		}
 
-		Arrays.toString(produto.toArray());
-		System.out.println(produto);
+		for (Produto s : produtos) {
+			System.out.println(s);
+
+		}
 
 	}
 
