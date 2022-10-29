@@ -2,12 +2,14 @@ import java.math.BigDecimal;
 
 public class Produto {
 
+	int numero;
 	String nome;
 	BigDecimal preco;
 	int quantidade;
 
-	public Produto(String nome, BigDecimal preco, int quantidade) {
+	public Produto(int numero, String nome, BigDecimal preco, int quantidade) {
 
+		this.numero = numero;
 		this.nome = nome;
 		this.preco = preco;
 		this.quantidade = quantidade;
@@ -16,11 +18,8 @@ public class Produto {
 
 	@Override
 	public String toString() {
-		return "|   Produto: " + nome + "     |   Preço: " + preco + "     |   Quant: " + quantidade + "     |";
+		return "|   Produto nº: [" + numero + "]   Nome: " + nome + "     |   Preço: " + preco + "     |   Quant: " + quantidade + "     |";
 	}
 
-	public static Object format(String string, Produto i) {
-		return null;
-	} 
 
 }
