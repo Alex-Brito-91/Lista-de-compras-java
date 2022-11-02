@@ -8,50 +8,41 @@ public class Produto {
 	String nome;
 	double preco;
 	int quantidade;
-	String opcao = "";
 
 	public static List<Produto> produtos = new ArrayList<>();
 
-	public Produto(String nome, double preco, int quantidade) {
-		
-	}
+	public List<Produto> cadastra() {
 
-
-	public void cadastra() {
+		String opcao = "";
+		int geraCodigo = 0;
 
 		while (!"N".equalsIgnoreCase(opcao)) {
+
+			Produto p = new Produto();
+			p.numero = ++geraCodigo;
 
 			Scanner scanner = new Scanner(System.in);
 
 			System.out.print("Digite o nome do produto: ");
-			nome = scanner.next();
+			p.nome = scanner.next();
 
 			System.out.print("Digite o valor: ");
-			preco = scanner.nextDouble();
+			p.preco = scanner.nextDouble();
 
 			System.out.print("Digite a quantidade: ");
-			quantidade = scanner.nextInt();
+			p.quantidade = scanner.nextInt();
 
-			Produto produto = new Produto(nome, preco, quantidade);
-			produtos.add(produto);
+			produtos.add(p);
 
 			System.out.println("Deseja continuar cadastrando? Digite [S] para continuar ou [N] para encerrar");
 			opcao = scanner.next();
 
 		}
-		
-		for (Produto i : produtos) {
-			System.out.println(i);
-		}
+
+		return produtos;
 
 	}
-	
 
-//	public void imprime(List<Produto> produtos) {
-//		for (Produto i : produtos) {
-//			System.out.println(i);
-//		}
-//	}
 
 	@Override
 	public String toString() {
