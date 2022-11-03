@@ -43,6 +43,32 @@ public class Produto {
 
 	}
 
+	public void excluir() {
+
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Digite o número do item que deseja excluir: ");
+		int excluir = scanner.nextInt();
+		Produto produtoParaRemover = produtos.stream().filter(produto -> produto.numero == excluir).findFirst().get();
+		produtos.remove(produtoParaRemover);
+		System.out.println("removido com sucesso");
+
+	}
+
+	public void limparLista() {
+
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Deseja limpar a lista? Digite: [S] para continuar e [N] para cancelar");
+		String limpar = scanner.next();
+		if ("S".equalsIgnoreCase(limpar)) {
+			produtos.clear();
+		}
+	}
+
+	public void imprimir() {
+		for (Produto i : produtos) {
+			System.out.println(i);
+		}
+	}
 
 	@Override
 	public String toString() {

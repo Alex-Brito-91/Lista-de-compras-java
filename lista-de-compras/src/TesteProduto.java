@@ -6,6 +6,9 @@ public class TesteProduto {
 
 		Produto produto = new Produto();
 		List<Produto> listaProdutos = produto.cadastra();
+		produto.imprimir();
+		produto.excluir();
+		produto.imprimir();
 
 	}
 
