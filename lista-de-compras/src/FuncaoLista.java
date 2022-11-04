@@ -46,6 +46,14 @@ public class FuncaoLista {
 			produtos.clear();
 		}
 	}
+	
+	public static void totalCompra() {
+		BigDecimal total = new BigDecimal(0);
+		for (Produto i : produtos) {
+			total = total.add(i.valorTotal);
+		}
+		System.out.println("Valor total da compra: " + total);
+	}
 
 	public static void imprimir(Produto produto) {
 		for (Produto i : produtos) {

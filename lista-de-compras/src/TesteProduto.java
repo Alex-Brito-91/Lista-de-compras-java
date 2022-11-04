@@ -7,8 +7,10 @@ public class TesteProduto {
 		Produto produto = new Produto();
 		List<Produto> listaProdutos = FuncaoLista.cadastrar();
 		FuncaoLista.imprimir(produto);
+		FuncaoLista.totalCompra();
 		FuncaoLista.excluir();
 		FuncaoLista.imprimir(produto);
+		FuncaoLista.totalCompra();
 		
 	}
 
