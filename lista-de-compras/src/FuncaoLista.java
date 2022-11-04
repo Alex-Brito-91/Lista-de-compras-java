@@ -15,7 +15,7 @@ public class FuncaoLista {
 			p.numero = ++geraCodigo;
 			Scanner scanner = new Scanner(System.in);
 			System.out.print("Digite o nome do produto: ");
-			p.nome = scanner.next();
+			p.nome = scanner.nextLine();
 			System.out.print("Digite a quantidade: ");
 			p.quantidade = scanner.nextInt();
 			System.out.print("Digite o valor: ");
@@ -52,13 +52,18 @@ public class FuncaoLista {
 		for (Produto i : produtos) {
 			total = total.add(i.valorTotal);
 		}
-		System.out.println("Valor total da compra: " + total);
+		System.out.println("\n        VALOR TOTAL DA COMPRA: " +total+ "\n");
 	}
 
 	public static void imprimir(Produto produto) {
 		for (Produto i : produtos) {
 			System.out.println(i);
 		}
+		BigDecimal total = new BigDecimal(0);
+		for (Produto i : produtos) {
+			total = total.add(i.valorTotal);
+		}
+		System.out.println("\n        VALOR TOTAL DA COMPRA: " +total+ "\n");
 	}
 
 }
