@@ -3,6 +3,20 @@ import java.util.Scanner;
 
 public class MenuLista {
 	
+	public static void textBlocksMenu() {
+		
+		String query = """
+				
+				LISTA DE COMPRAS
+				
+				MENU DE OPÇÕES: [1]CADASTRAR ITENS | [2]IMPRIMIR LISTA | [3]EXIBIR TOTAL DA COMPRA | [4]EXCLUIR ITEM | [5]LIMPAR LISTA | [6]SAIR
+														
+				DIGITE A OPÇÃO DESEJADA:
+				
+				""";
+		System.out.println(query);
+	}
+	
 	public static void criarMenu() {
 		
 		Produto produto = new Produto();
@@ -13,15 +27,7 @@ public class MenuLista {
 		
 		do {
 			
-			System.out.print("LISTA DE COMPRAS\n"
-					+ "------------------------------------------------------------"
-					+ "------------------------------------------------------------"
-					+ "--------\nMENU DE OPÇÕES: [1]CADASTRAR ITENS | "
-					+ "[2]IMPRIMIR LISTA | [3]EXIBIR TOTAL DA COMPRA | "
-					+ "[4]EXCLUIR ITEM | [5]LIMPAR LISTA | [6]SAIR\n-----------"
-					+ "------------------------------------------------------------"
-					+ "---------------------------------------------------------\n"
-					+ "DIGITE A OPÇÃO DESEJADA: ");
+			textBlocksMenu();
 			
 			opcaoMenu = scanner.nextInt();
 			
@@ -57,3 +63,4 @@ public class MenuLista {
 	
 
 }
+
