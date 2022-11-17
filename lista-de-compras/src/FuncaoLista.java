@@ -12,15 +12,15 @@ public class FuncaoLista {
 		int geraCodigo = 0;
 		while (!"N".equalsIgnoreCase(opcao)) {
 			Produto p = new Produto();
-			p.numero = ++geraCodigo;
+			p.setNumero(++geraCodigo);
 			Scanner scanner = new Scanner(System.in);
 			System.out.print("Digite o nome do produto: ");
-			p.nome = scanner.nextLine();
+			p.setNome(scanner.nextLine());
 			System.out.print("Digite a quantidade: ");
-			p.quantidade = scanner.nextInt();
+			p.setQuantidade(scanner.nextInt());
 			System.out.print("Digite o valor: ");
-			p.valorUnitario = scanner.nextBigDecimal();
-			p.valorTotal = p.valorUnitario.multiply(BigDecimal.valueOf(p.quantidade));
+			p.setValorUnitario(scanner.nextBigDecimal());
+			p.setValorTotal(p.getValorUnitario().multiply(BigDecimal.valueOf(p.getQuantidade())));
 			produtos.add(p);
 			System.out.println("Deseja continuar cadastrando? Digite [S] para continuar ou [N] para encerrar");
 			opcao = scanner.next();
@@ -33,7 +33,7 @@ public class FuncaoLista {
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("Digite o número do item que deseja excluir: ");
 		int excluir = scanner.nextInt();
-		Produto produtoParaRemover = produtos.stream().filter(produto -> produto.numero == excluir).findFirst().get();
+		Produto produtoParaRemover = produtos.stream().filter(produto -> produto.getNumero() == excluir).findFirst().get();
 		produtos.remove(produtoParaRemover);
 		System.out.println("removido com sucesso");
 	}
@@ -50,7 +50,7 @@ public class FuncaoLista {
 	public static void totalCompra() {
 		BigDecimal total = new BigDecimal(0);
 		for (Produto i : produtos) {
-			total = total.add(i.valorTotal);
+			total = total.add(i.getValorTotal());
 		}
 		System.out.println("\n        VALOR TOTAL DA COMPRA: " +total+ "\n");
 	}
@@ -61,7 +61,7 @@ public class FuncaoLista {
 		}
 		BigDecimal total = new BigDecimal(0);
 		for (Produto i : produtos) {
-			total = total.add(i.valorTotal);
+			total = total.add(i.getValorTotal());
 		}
 		System.out.println("\n        VALOR TOTAL DA COMPRA: " +total+ "\n");
 	}
