@@ -1,5 +1,6 @@
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,7 +13,7 @@ public class FuncaoLista {
 		int geraCodigo = 0;
 		while (!"N".equalsIgnoreCase(opcao)) {
 			Produto p = new Produto();
-			p.setNumero(++geraCodigo);
+			p.setId(++geraCodigo);
 			Scanner scanner = new Scanner(System.in);
 			System.out.print("Digite o nome do produto: ");
 			p.setNome(scanner.nextLine());
@@ -28,15 +29,33 @@ public class FuncaoLista {
 		return produtos;
 
 	}
-
+	
+	
 	public static void excluir() {
+		
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("Digite o número do item que deseja excluir: ");
-		int excluir = scanner.nextInt();
-		Produto produtoParaRemover = produtos.stream().filter(produto -> produto.getNumero() == excluir).findFirst().get();
-		produtos.remove(produtoParaRemover);
-		System.out.println("removido com sucesso");
+		Integer id = scanner.nextInt();
+		
+		Iterator<Produto> it = produtos.iterator();
+		
+		while (it.hasNext()) {
+			Produto p = it.next();
+			
+			if (p.getId() == id) {
+				it.remove();
+			}
+		}
 	}
+
+//	public static void excluir() {
+//		Scanner scanner = new Scanner(System.in);
+//		System.out.print("Digite o número do item que deseja excluir: ");
+//		int excluir = scanner.nextInt();
+//		Produto produtoParaRemover = produtos.stream().filter(produto -> produto.getNumero() == excluir).findFirst().get();
+//		produtos.remove(produtoParaRemover);
+//		System.out.println("removido com sucesso");
+//	}
 
 	public static void limparLista() {
 		Scanner scanner = new Scanner(System.in);

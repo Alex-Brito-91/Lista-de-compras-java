@@ -2,18 +2,18 @@ import java.math.BigDecimal;
 
 public class Produto {
 
-	private int numero;
+	private int id;
 	private String nome;
 	private int quantidade;
 	private BigDecimal valorUnitario;
 	private BigDecimal valorTotal;
 	
-	public int getNumero() {
-		return numero;
+	public int getId() {
+		return id;
 	}
 
-	public void setNumero(int numero) {
-		this.numero = numero;
+	public void setId(int numero) {
+		this.id = numero;
 	}
 
 	public void setNome(String nome) {
@@ -46,7 +46,7 @@ public class Produto {
 
 	@Override
 	public String toString() {
-		return "|   Produto nº: ["+numero+"]   "
+		return "|   Produto nº: ["+id+"]   "
 				+ "Nome: "+nome+"   |   "
 				+ "Quant: "+quantidade+"   |   "
 				+ "Valor Un: R$"+valorUnitario+"   |   "
