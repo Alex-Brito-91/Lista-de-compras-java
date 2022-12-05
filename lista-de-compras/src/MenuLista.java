@@ -9,7 +9,7 @@ public class MenuLista {
 				
 				LISTA DE COMPRAS
 				
-				MENU DE OPÇÕES: [1]CADASTRAR ITENS | [2]IMPRIMIR LISTA | [3]EXIBIR TOTAL DA COMPRA | [4]EXCLUIR ITEM | [5]LIMPAR LISTA | [6]SAIR
+				MENU DE OPÇÕES: [1]CADASTRAR ITENS | [2]EXIBIR LISTA | [3]EXIBIR TOTAL DA COMPRA | [4]EXCLUIR ITEM | [5]LIMPAR LISTA | [6]SAIR
 														
 				DIGITE A OPÇÃO DESEJADA:
 				
@@ -35,15 +35,17 @@ public class MenuLista {
 			
 			case 1:
 				listaProdutos = FuncaoLista.cadastrar();
+				FuncaoLista.exibirLista(produto);
 				break;
 			case 2:
-				FuncaoLista.imprimir(produto);
+				FuncaoLista.exibirLista(produto);
 				break;
 			case 3:
 				FuncaoLista.totalCompra();
 				break;
 			case 4:
 				FuncaoLista.excluir();
+				FuncaoLista.exibirLista(produto);
 				break;
 			case 5:
 				FuncaoLista.limparLista();

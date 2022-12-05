@@ -15,26 +15,25 @@ public class FuncaoLista {
 			Produto p = new Produto();
 			p.setId(++geraCodigo);
 			Scanner scanner = new Scanner(System.in);
-			System.out.print("Digite o nome do produto: ");
+			System.out.print("DIGITE O NOME DO PRODUTO: ");
 			p.setNome(scanner.nextLine());
-			System.out.print("Digite a quantidade: ");
+			System.out.print("DIGITE A QUANTIDADE: ");
 			p.setQuantidade(scanner.nextInt());
-			System.out.print("Digite o valor: ");
+			System.out.print("DIGITE O VALOR: ");
 			p.setValorUnitario(scanner.nextBigDecimal());
 			p.setValorTotal(p.getValorUnitario().multiply(BigDecimal.valueOf(p.getQuantidade())));
 			produtos.add(p);
-			System.out.println("Deseja continuar cadastrando? Digite [S] para continuar ou [N] para encerrar");
+			System.out.println("DESEJA CONTINUAR CADASTRANDO? DIGITE [S] PARA CONTINUAR OU [N] PARA ENCERRAR");
 			opcao = scanner.next();
 		}
 		return produtos;
 
 	}
 	
-	
 	public static void excluir() {
 		
 		Scanner scanner = new Scanner(System.in);
-		System.out.print("Digite o número do item que deseja excluir: ");
+		System.out.print("DIGITE O NÚMERO DO ITEM QUE DESEJA EXCLUIR: ");
 		Integer id = scanner.nextInt();
 		
 		Iterator<Produto> it = produtos.iterator();
@@ -46,24 +45,17 @@ public class FuncaoLista {
 				it.remove();
 			}
 		}
+		System.out.println("REMOVIDO COM SUCESSO! \n");
 	}
-
-//	public static void excluir() {
-//		Scanner scanner = new Scanner(System.in);
-//		System.out.print("Digite o número do item que deseja excluir: ");
-//		int excluir = scanner.nextInt();
-//		Produto produtoParaRemover = produtos.stream().filter(produto -> produto.getNumero() == excluir).findFirst().get();
-//		produtos.remove(produtoParaRemover);
-//		System.out.println("removido com sucesso");
-//	}
 
 	public static void limparLista() {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Deseja limpar a lista? Digite: [S] para continuar e [N] para cancelar");
+		System.out.println("DESEJA LIMPAR A LISTA? DIGITE: [S] PARA CONTINUAR E [N] PARA CANCELAR");
 		String limpar = scanner.next();
 		if ("S".equalsIgnoreCase(limpar)) {
 			produtos.clear();
 		}
+		System.out.println("LISTA REMOVIDA! \n");
 	}
 	
 	public static void totalCompra() {
@@ -74,7 +66,7 @@ public class FuncaoLista {
 		System.out.println("\n        VALOR TOTAL DA COMPRA: " +total+ "\n");
 	}
 
-	public static void imprimir(Produto produto) {
+	public static void exibirLista(Produto produto) {
 		for (Produto i : produtos) {
 			System.out.println(i);
 		}
