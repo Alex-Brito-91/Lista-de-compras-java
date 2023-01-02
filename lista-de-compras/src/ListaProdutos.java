@@ -1,17 +1,13 @@
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
+import javax.swing.JScrollPane;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.JTable;
 
 public class ListaProdutos extends JFrame {
 
-	private JPanel painelLista;
-	private JTable tableLista;
-
 	public static void main(String[] args) {
-		
+
 		try {
 			for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
 				if ("Metal".equals(info.getName())) {
@@ -24,7 +20,7 @@ public class ListaProdutos extends JFrame {
 				| javax.swing.UnsupportedLookAndFeelException ex) {
 			System.err.println(ex);
 		}
-		
+
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -38,24 +34,27 @@ public class ListaProdutos extends JFrame {
 	}
 
 	public ListaProdutos() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		painelLista = new JPanel();
-		painelLista.setBorder(new EmptyBorder(5, 5, 5, 5));
 
-		setContentPane(painelLista);
-		painelLista.setLayout(null);
-		
-		Object [][] dados = {
-				{"arroz", "1", "21,50"},
-				{"feijao", "2", "6,80"},
-				{"leite", "6", "4,99"}
-		};
-		
-		String [] colunas = {"Produto", "Quant.", "ValorUN"};
-		
-		tableLista = new JTable(dados, colunas);
-		tableLista.setBounds(27, 19, 393, 230);
-		painelLista.add(tableLista);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(400, 400);
+
+		JTable tabela = new JTable();
+
+		String[][] objetos = { { "01", "arroz", "2", "21,50", "43,00" }, { "02", "feijão", "2", "6,50", "13,00" },
+				{ "03", "leite", "4", "5,00", "20,00" } };
+		String[] colunas = { "ID", "Produto", "Quant", "Valor UN", "Valor Total" };
+
+		DefaultTableModel modelo = (new DefaultTableModel(objetos, colunas) {
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
+		});
+		tabela.setModel(modelo);
+
+		JScrollPane scroll = new JScrollPane(tabela);
+
+		getContentPane().add(scroll);
+		setVisible(true);
 	}
 }
